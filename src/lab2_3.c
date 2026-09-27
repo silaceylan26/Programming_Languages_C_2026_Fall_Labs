@@ -12,17 +12,29 @@
 */
 
 int is_prime(int n) {
-    // TODO: check if n is prime using loop up to sqrt(n)
-    return 0; // placeholder
+  for (int i = 2; i * i <= n; i++) {
+    if (n % i == 0) {
+      return 0;
+    }
+  }
+  return 1;
 }
 
 int main(void) {
-    int n;
+  int n;
 
-    printf("Enter an integer n (>= 2): ");
-    scanf("%d", &n);
+  printf("Enter an integer n to check prime: ");
+  scanf("%d", &n);
 
-    // TODO: validate input and print all primes up to n
+  if (n < 2) {
+    printf("Enter n must be greater than or equal to 2.\n");
+  } else {
+    if (is_prime(n)) {
+      printf("%d is prime.\n", n);
+    } else {
+      printf("%d is pnot prime.\n", n);
+    }
+  }
 
-    return 0;
+  return 0;
 }
